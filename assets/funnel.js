@@ -84,6 +84,79 @@
     });
   }
 
+  // ---- PRODUCTS (index.html): add a tier to the cart → checkout ----
+  var TIERS = {
+    one:      { name: 'One-Category Guide',            price: 9  },
+    complete: { name: 'The Complete Grocery Guide',    price: 27 },
+    system:   { name: 'The Real Food Kitchen System',  price: 97 }
+  };
+  function wireProducts() {
+    document.querySelectorAll('[data-add]').forEach(function (b) {
+      b.addEventListener('click', function (e) {
+        e.preventDefault();
+        set({ cart: b.getAttribute('data-add'), cart_at: Date.now() });
+        go('checkout.html');
+      });
+    });
+  }
+
+  // ---- CHECKOUT (checkout.html): render cart, take email+payment (stub) ----
+  function wireCheckout() {
+    var cartEl = document.getElementById('cart');
+    if (!cartEl) return;
+    var s = load();
+    if (!s.cart || !TIERS[s.cart]) { go('index.html#pricing'); return; }
+    var bump = document.getElementById('bump');
+
+    function render() {
+      var t = TIERS[s.cart];
+      cartEl.innerHTML =
+        '<div class="cartline"><span class="nm">' + t.name + '</span><span>$' + t.price + '</span></div>' +
+        (bump && bump.checked
+          ? '<div class="cartline"><span class="nm">Printable Pocket Cards</span><span>$9</span></div>' : '');
+      var total = t.price + (bump && bump.checked ? 9 : 0);
+      var totEl = document.getElementById('total');
+      if (totEl) totEl.textContent = '$' + total;
+      var swap = document.getElementById('swap');
+      if (swap) {
+        var others = Object.keys(TIERS).filter(function (k) { return k !== s.cart; });
+        swap.innerHTML = 'Change your pick: ' + others.map(function (k) {
+          return '<a href="#" data-swap="' + k + '">' + TIERS[k].name + ' ($' + TIERS[k].price + ')</a>';
+        }).join(' · ');
+        swap.querySelectorAll('[data-swap]').forEach(function (a) {
+          a.addEventListener('click', function (e) {
+            e.preventDefault();
+            s = set({ cart: a.getAttribute('data-swap') });
+            render();
+          });
+        });
+      }
+    }
+    render();
+    if (bump) bump.addEventListener('change', render);
+
+    var email = document.getElementById('email');
+    if (email && s.email) email.value = s.email;
+    function complete(method) {
+      if (!isEmail(email.value)) {
+        email.focus(); email.setCustomValidity('Enter a valid email'); email.reportValidity();
+        return;
+      }
+      set({
+        email: email.value.trim(),
+        purchase: s.cart,
+        purchase_method: method,
+        bump: !!(bump && bump.checked),
+        purchase_at: Date.now()
+      });
+      go('success.html');
+    }
+    var buy = document.querySelector('[data-checkout]');
+    var pp  = document.querySelector('[data-checkout-paypal]');
+    if (buy) buy.addEventListener('click', function (e) { e.preventDefault(); complete('card'); });
+    if (pp)  pp.addEventListener('click', function (e) { e.preventDefault(); complete('paypal'); });
+  }
+
   // ---- SUCCESS (success.html): reflect what they actually bought ----
   function renderSuccess() {
     var root = document.getElementById('success-summary');
@@ -93,6 +166,10 @@
     lines.push('Free Real Food List — sent to <strong>' + (s.email ? esc(s.email) : 'your inbox') + '</strong>');
     if (s.tripwire === 'purchased') {
       lines.push('Complete Real Dairy guide — <strong>unlocked</strong>');
+      if (s.bump) lines.push('Printable Pocket Cards — <strong>added</strong>');
+    }
+    if (s.purchase && TIERS[s.purchase]) {
+      lines.push(TIERS[s.purchase].name + ' — <strong>unlocked</strong>');
       if (s.bump) lines.push('Printable Pocket Cards — <strong>added</strong>');
     }
     if (s.upsell && s.upsell !== 'declined') {
@@ -114,6 +191,8 @@
 
   function init() {
     wireOptin();
+    wireProducts();
+    wireCheckout();
     wireTripwire();
     wireUpsell();
     renderSuccess();

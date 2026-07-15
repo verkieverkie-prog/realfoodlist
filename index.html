@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<div class="topbar">Free shopping list · <b>no cost, no catch</b> · from the Tasted &amp; Tested channel</div>
+<div class="topbar">The grocery guides · <b>30-day money back on everything</b> · from the Tasted &amp; Tested channel</div>
 
 <main class="hero">
   <!-- DESKTOP FOLD: two columns (copy + form left, label panel right). Collapses to one on mobile. -->
@@ -25,15 +25,11 @@
       <h1>The grocery brands to <mark>never buy again</mark>, and the ones that are actually real.</h1>
       <p class="lede">You already read the label. We read all of them. Get the free list that tells you, in plain English, what is real food and what is filler wearing a nice label, so you are not deciding in the aisle.</p>
 
-      <!-- OPT-IN: single field, above the fold, one job. -->
-      <form class="optin" action="#" method="post" onsubmit="return false" aria-label="Get the free list">
-        <label for="email">Get the full list free, plus the 12 brands to never buy again:</label>
-        <input id="email" name="email" type="email" required autocomplete="email"
-               placeholder="your email" inputmode="email">
-        <button class="btn" type="submit">Send me the free list</button>
-        <p class="subnote">One email. Unsubscribe anytime. We never sell your address.</p>
-      </form>
-      <!-- On submit: create beehiiv subscriber, then redirect to thank-you.html (tripwire) -->
+      <!-- PRIMARY CTA: straight to the products. Free list is the secondary path below. -->
+      <p style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn" href="#pricing">See the guides</a>
+        <a class="btn ghost" href="#free">Just want the free list?</a>
+      </p>
 
       <div class="trust">
         <span class="chip">From the <b>Tasted &amp; Tested</b> channel</span>
@@ -68,6 +64,50 @@
     </div>
   </div>
 
+  <!-- PRICING: the store. 3 tiers, add to cart → checkout. -->
+  <div class="wrap-wide" id="pricing">
+    <h2 style="text-align:center">Pick your guide</h2>
+    <p style="text-align:center;max-width:38em;margin:0 auto 6px">Every brand ranked real, check, or skip, with the one-line reason from the actual label. One payment, no subscription, 30-day money back on all of it.</p>
+    <div class="ladder">
+      <div class="tier">
+        <p class="rank">Start here</p>
+        <p class="tname">One-Category Guide</p>
+        <p class="tprice">$9</p>
+        <ul>
+          <li>One aisle, fully settled (Real Dairy, Real Pantry, or Real Meat)</li>
+          <li>Every brand ranked real, check, or skip</li>
+          <li>Printable pocket list</li>
+        </ul>
+        <a class="btn ghost" href="#" data-add="one">Add to cart · $9</a>
+      </div>
+      <div class="tier best">
+        <span class="badge">Most popular</span>
+        <p class="rank">The core</p>
+        <p class="tname">The Complete Grocery Guide</p>
+        <p class="tprice"><s>$39</s> $27</p>
+        <ul>
+          <li>All 20+ categories, brand by brand</li>
+          <li>The plain reason for every call</li>
+          <li>Printable pocket lists for the whole store</li>
+          <li>Free updates as we add categories</li>
+        </ul>
+        <a class="btn" href="#" data-add="complete">Add to cart · $27</a>
+      </div>
+      <div class="tier">
+        <p class="rank">Everything</p>
+        <p class="tname">The Real Food Kitchen System</p>
+        <p class="tprice">$97</p>
+        <ul>
+          <li>The complete guide, plus every deep dive</li>
+          <li>The "Read Any Label in 10 Seconds" masterclass</li>
+          <li>Pocket-card kit for the whole family</li>
+          <li>Lifetime updates, plus our full sourcing notes</li>
+        </ul>
+        <a class="btn dark" href="#" data-add="system">Add to cart · $97</a>
+      </div>
+    </div>
+  </div>
+
   <div class="wrap narrow">
     <div class="proof">
       "A voice of sanity in a world of increasing grocery-aisle anxiety."
@@ -78,11 +118,11 @@
     <p>The label says one thing. The ingredients say another. Big food counts on you being too busy to check, and the FDA is not going to check for you. So we do. We read the actual ingredient panel on every brand, and we tell you which ones are real food and which ones are filler, additives, and oils dressed up to look like the real thing.</p>
     <p><strong>No sponsors picking the winners.</strong> If a brand is real, it goes on the real list, whether they like us or not. When we ever earn a commission on something, we say so plainly, and it never changes your price.</p>
 
-    <h2>What you get, free</h2>
-    <p>The 12 grocery brands to never buy again, the real alternatives for each, and the one-line reason for every call. So the next time you are standing in the aisle, you already know.</p>
+    <h2 id="free">Not ready to buy? Start with the free list</h2>
+    <p>The 12 grocery brands to never buy again, the real alternatives for each, and the one-line reason for every call. Free, one email, so the next time you are standing in the aisle you already know.</p>
 
     <form class="optin" action="#" method="post" onsubmit="return false">
-      <label for="email2">Ready? Enter your email:</label>
+      <label for="email2">Enter your email:</label>
       <input id="email2" name="email" type="email" required autocomplete="email" placeholder="your email" inputmode="email">
       <button class="btn" type="submit">Send me the free list</button>
       <p class="subnote">Free. One email. Unsubscribe anytime.</p>
