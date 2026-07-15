@@ -28,12 +28,6 @@
       <div id="cart"></div>
       <p class="swaplink" id="swap"></p>
 
-      <div class="bump">
-        <input type="checkbox" id="bump" name="bump">
-        <label for="bump">Yes, add the printable Pocket Cards for $9 more<br>
-          <span class="b-sub">Wallet-sized real and skip cards for dairy, pantry, and meat. Print once, shop forever.</span></label>
-      </div>
-
       <div class="totalline"><span>Total today</span><span id="total">$0</span></div>
 
       <div class="guarantee">
@@ -45,12 +39,9 @@
     <div class="buybox">
       <form class="optin" action="#" method="post" onsubmit="return false" aria-label="Checkout">
         <label for="email">Email (your guide goes here)</label>
-        <input id="email" name="email" type="email" required autocomplete="email" placeholder="your email" inputmode="email">
-        <label for="cc">Card</label>
-        <input id="cc" name="cc" type="text" placeholder="Card number, secure checkout" autocomplete="cc-number">
-        <button class="btn" type="submit" data-checkout>Complete my order</button>
-        <button class="btn ghost" type="submit" data-checkout-paypal>or pay with PayPal</button>
-        <p class="microcopy">Takes 60 seconds. Instant download plus a copy to your inbox.</p>
+        <input id="email" name="email" type="email" autocomplete="email" placeholder="your email" inputmode="email">
+        <button class="btn" type="submit" data-checkout>Continue to secure payment</button>
+        <p class="microcopy">Payment is handled by Stripe on the next page. Takes 60 seconds.</p>
         <div class="badges">
           <span class="bdg"><span class="ic">✓</span> Secure checkout</span>
           <span class="bdg"><span class="ic">✓</span> Instant download</span>
@@ -63,7 +54,7 @@
   </div>
 
   <div class="wrap narrow">
-    <p class="dev-flag">DEV NOTE: payment is stubbed. Replace the card field with a Stripe Payment Element (plus Stripe Tax and PayPal); on success deliver signed download links, fire the receipt email, and add the buyer to beehiiv. Non-completers get the abandoned-cart sequence.</p>
+    <p class="dev-flag">DEV NOTE: payment runs on live Stripe Payment Links. Set each link's after-payment redirect (Stripe dashboard) to success.html so buyers land back on delivery. Delivery + beehiiv add still manual until the API key exists.</p>
   </div>
 </main>
 

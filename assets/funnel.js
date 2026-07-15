@@ -49,12 +49,13 @@
     var bump = document.getElementById('bump');
     function purchase(method) {
       set({
-        tripwire: 'purchased',
+        tripwire: 'intent',
         tripwire_method: method,
         bump: !!(bump && bump.checked),
         tripwire_at: Date.now()
       });
-      go('guide.html'); // one-click upsell to the complete guide
+      var em = (load().email || '').trim();
+      window.location.href = TIERS.one.pay + (em ? '?prefilled_email=' + encodeURIComponent(em) : '');
     }
     if (buy) buy.addEventListener('click', function (e) { e.preventDefault(); purchase('card'); });
     if (pay) pay.addEventListener('click', function (e) { e.preventDefault(); purchase('paypal'); });
@@ -72,8 +73,12 @@
     buttons.forEach(function (b) {
       b.addEventListener('click', function (e) {
         e.preventDefault();
-        set({ upsell: b.getAttribute('data-upsell'), upsell_at: Date.now() });
-        go('success.html');
+        var k = b.getAttribute('data-upsell');
+        set({ upsell: k, upsell_at: Date.now() });
+        if (TIERS[k]) {
+          var em = (load().email || '').trim();
+          window.location.href = TIERS[k].pay + (em ? '?prefilled_email=' + encodeURIComponent(em) : '');
+        } else go('success.html');
       });
     });
     var decline = document.querySelector('[data-upsell-decline]');
@@ -86,10 +91,11 @@
 
   // ---- PRODUCTS (index.html): add a tier to the cart → checkout ----
   var TIERS = {
-    one:      { name: 'One-Category Guide',            price: 9  },
-    complete: { name: 'The Complete Grocery Guide',    price: 27 },
-    system:   { name: 'The Real Food Kitchen System',  price: 97 }
+    one:      { name: 'One-Category Guide',           price: 8.75,  pay: 'https://buy.stripe.com/6oUaEXgFUfUK1zP4kvgA80a' },
+    complete: { name: 'The Complete Grocery Guide',   price: 26.99, pay: 'https://buy.stripe.com/6oU8wPfBQ8siguJbMXgA80d' },
+    system:   { name: 'The Real Food Kitchen System', price: 97,    pay: 'https://buy.stripe.com/3cI5kDahw8siemBg3dgA80c' }
   };
+  function money(n) { return '$' + (n % 1 ? n.toFixed(2) : n); }
   function wireProducts() {
     document.querySelectorAll('[data-add]').forEach(function (b) {
       b.addEventListener('click', function (e) {
@@ -106,22 +112,18 @@
     if (!cartEl) return;
     var s = load();
     if (!s.cart || !TIERS[s.cart]) { go('index.html#pricing'); return; }
-    var bump = document.getElementById('bump');
 
     function render() {
       var t = TIERS[s.cart];
       cartEl.innerHTML =
-        '<div class="cartline"><span class="nm">' + t.name + '</span><span>$' + t.price + '</span></div>' +
-        (bump && bump.checked
-          ? '<div class="cartline"><span class="nm">Printable Pocket Cards</span><span>$9</span></div>' : '');
-      var total = t.price + (bump && bump.checked ? 9 : 0);
+        '<div class="cartline"><span class="nm">' + t.name + '</span><span>' + money(t.price) + '</span></div>';
       var totEl = document.getElementById('total');
-      if (totEl) totEl.textContent = '$' + total;
+      if (totEl) totEl.textContent = money(t.price);
       var swap = document.getElementById('swap');
       if (swap) {
         var others = Object.keys(TIERS).filter(function (k) { return k !== s.cart; });
         swap.innerHTML = 'Change your pick: ' + others.map(function (k) {
-          return '<a href="#" data-swap="' + k + '">' + TIERS[k].name + ' ($' + TIERS[k].price + ')</a>';
+          return '<a href="#" data-swap="' + k + '">' + TIERS[k].name + ' (' + money(TIERS[k].price) + ')</a>';
         }).join(' · ');
         swap.querySelectorAll('[data-swap]').forEach(function (a) {
           a.addEventListener('click', function (e) {
@@ -133,28 +135,23 @@
       }
     }
     render();
-    if (bump) bump.addEventListener('change', render);
 
     var email = document.getElementById('email');
     if (email && s.email) email.value = s.email;
-    function complete(method) {
-      if (!isEmail(email.value)) {
+    var buy = document.querySelector('[data-checkout]');
+    if (buy) buy.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (email && email.value && !isEmail(email.value)) {
         email.focus(); email.setCustomValidity('Enter a valid email'); email.reportValidity();
         return;
       }
-      set({
-        email: email.value.trim(),
-        purchase: s.cart,
-        purchase_method: method,
-        bump: !!(bump && bump.checked),
-        purchase_at: Date.now()
-      });
-      go('success.html');
-    }
-    var buy = document.querySelector('[data-checkout]');
-    var pp  = document.querySelector('[data-checkout-paypal]');
-    if (buy) buy.addEventListener('click', function (e) { e.preventDefault(); complete('card'); });
-    if (pp)  pp.addEventListener('click', function (e) { e.preventDefault(); complete('paypal'); });
+      if (email && email.value) set({ email: email.value.trim() });
+      set({ purchase_intent: s.cart, purchase_intent_at: Date.now() });
+      var url = TIERS[s.cart].pay;
+      // prefill the Stripe checkout email when we have it
+      var em = (load().email || '').trim();
+      window.location.href = url + (em ? '?prefilled_email=' + encodeURIComponent(em) : '');
+    });
   }
 
   // ---- SUCCESS (success.html): reflect what they actually bought ----

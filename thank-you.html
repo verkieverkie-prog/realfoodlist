@@ -55,8 +55,8 @@
     <div class="buybox">
       <!-- LOW TIER / TRIPWIRE CHECKOUT: on-site (Stripe). First-dollar conversion. -->
       <form class="optin" action="#" method="post" onsubmit="return false" aria-label="Get the Real Dairy guide">
-        <p class="price"><s>$19</s> $9 <span class="subnote" style="display:inline">new-subscriber price</span></p>
-        <p class="countline">Your <strong>$9 price</strong> is held for <b id="cd2">48:00:00</b>. After that it is the normal $19.</p>
+        <p class="price"><s>$19</s> $8.75 <span class="subnote" style="display:inline">new-subscriber price</span></p>
+        <p class="countline">Your <strong>$8.75 price</strong> is held for <b id="cd2">48:00:00</b>. After that it is the normal $19.</p>
 
         <!-- VALUE STACK: real component prices. Confirm each price is one you genuinely sell at. -->
         <div class="stack" aria-label="what is included">
@@ -64,20 +64,12 @@
           <div class="srow"><span>Printable pocket list</span><span class="v">$12</span></div>
           <div class="srow"><span>Free updates as brands change</span><span class="v">$15</span></div>
           <div class="total"><span class="lbl">Total real value</span><span class="amt">$46</span></div>
-          <div class="youpay"><span class="lbl">Today, new subscribers pay</span><span class="amt">$9</span></div>
+          <div class="youpay"><span class="lbl">Today, new subscribers pay</span><span class="amt">$8.75</span></div>
         </div>
 
-        <div class="bump">
-          <input type="checkbox" id="bump" name="bump">
-          <label for="bump">Yes, add the printable Pocket Cards for $9 more<br>
-            <span class="b-sub">Wallet-sized real and skip cards for dairy, pantry, and meat. Print once, shop forever.</span></label>
-        </div>
 
-        <label for="cc">Card or PayPal</label>
-        <input id="cc" name="cc" type="text" placeholder="Card number, secure checkout" autocomplete="cc-number">
-        <button class="btn" type="submit" data-buy="tripwire">Yes, settle my dairy aisle for $9</button>
-        <button class="btn ghost" type="submit" data-buy="tripwire-paypal">or pay with PayPal</button>
-        <p class="microcopy">Takes 60 seconds. Your guide downloads the moment you pay.</p>
+        <button class="btn" type="submit" data-buy="tripwire">Yes, settle my dairy aisle for $8.75</button>
+        <p class="microcopy">Payment is handled by Stripe on the next page. Takes 60 seconds.</p>
 
         <div class="badges">
           <span class="bdg"><span class="ic">✓</span> Secure checkout</span>
