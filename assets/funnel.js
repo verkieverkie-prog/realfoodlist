@@ -1,8 +1,8 @@
-/* The Real Food List — funnel wiring (front-end only, no real payment).
+/* The Real Food List - funnel wiring (front-end only, no real payment).
    Flow:  index (opt-in, free)  →  thank-you (tripwire $9)  →  guide (one-click upsell)  →  success (delivery)
    All state lives in localStorage so the flow survives reloads and the honest
    48h countdown stays anchored to the visitor's first visit. Real money is NOT
-   moved here — every checkout is a front-end stub that records intent and moves
+   moved here - every checkout is a front-end stub that records intent and moves
    the visitor forward. Wire Stripe/beehiiv server-side before launch (see the
    DEV NOTE flags on each page). */
 (function () {
@@ -160,14 +160,14 @@
     if (!root) return;
     var s = load();
     var lines = [];
-    lines.push('Free Real Food List — sent to <strong>' + (s.email ? esc(s.email) : 'your inbox') + '</strong>');
+    lines.push('Free Real Food List, sent to <strong>' + (s.email ? esc(s.email) : 'your inbox') + '</strong>');
     if (s.tripwire === 'purchased') {
-      lines.push('Complete Real Dairy guide — <strong>unlocked</strong>');
-      if (s.bump) lines.push('Printable Pocket Cards — <strong>added</strong>');
+      lines.push('Complete Real Dairy guide: <strong>unlocked</strong>');
+      if (s.bump) lines.push('Printable Pocket Cards: <strong>added</strong>');
     }
     if (s.purchase && TIERS[s.purchase]) {
-      lines.push(TIERS[s.purchase].name + ' — <strong>unlocked</strong>');
-      if (s.bump) lines.push('Printable Pocket Cards — <strong>added</strong>');
+      lines.push(TIERS[s.purchase].name + ': <strong>unlocked</strong>');
+      if (s.bump) lines.push('Printable Pocket Cards: <strong>added</strong>');
     }
     if (s.upsell && s.upsell !== 'declined') {
       var names = {
@@ -175,7 +175,7 @@
         'system': 'The Real Food Kitchen System (everything)',
         'one': 'One-Category Guide'
       };
-      lines.push((names[s.upsell] || 'Guide upgrade') + ' — <strong>unlocked</strong>');
+      lines.push((names[s.upsell] || 'Guide upgrade') + ': <strong>unlocked</strong>');
     }
     root.innerHTML = lines.map(function (l) {
       return '<li><span class="ok">✓</span> ' + l + '</li>';
