@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>You're all set — everything you got, in one place</title>
+<meta name="description" content="Your Real Food List and guides are ready. Downloads and inbox copy, plus what happens next.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<div class="topbar">All set · <b>check your inbox</b> · from the Tasted &amp; Tested channel</div>
+
+<main class="hero">
+  <div class="wrap narrow">
+    <p class="eyebrow">You're in</p>
+    <h1>Done. It's <mark>yours</mark>, and it's in your inbox.</h1>
+    <p class="lede">Everything below is ready to download now, and a copy is on its way to
+      <strong id="success-email">your inbox</strong>. Read it on your phone in the store or print it for the fridge.</p>
+
+    <!-- Populated by funnel.js from what the visitor actually bought. -->
+    <ul class="deliver" id="success-summary">
+      <li><span class="ok">✓</span> Your free Real Food List is on its way to your inbox. <a href="list.html">Or read it right now</a>.</li>
+    </ul>
+
+    <div class="dlgrid">
+      <div class="dlcard">
+        <p class="dlt">Download your guides</p>
+        <p class="dld">Signed download links, ready the moment your payment clears.</p>
+        <a class="btn" href="#" data-download>Download everything</a>
+      </div>
+      <div class="dlcard">
+        <p class="dlt">Print the pocket list</p>
+        <p class="dld">Wallet-sized real-and-skip cards. Print once, shop forever.</p>
+        <a class="btn ghost" href="#" data-print>Open printable version</a>
+      </div>
+    </div>
+
+    <h2>What happens next</h2>
+    <p>New categories get added to the guide as we investigate them, and you get every one free, for good. When a brand changes its recipe, we update the call and you keep the current version. No account to manage, nothing recurring.</p>
+
+    <div class="guarantee">
+      <span class="seal">100%<br>BACK</span>
+      <span><strong>Still on us.</strong> Read it. If it does not save you money and worry at the store, email us within 30 days for every cent back and keep the guides anyway.</span>
+    </div>
+
+    <div class="proof">
+      "A voice of sanity in a world of increasing grocery-aisle anxiety."
+      <div class="who">actual viewer comment</div>
+    </div>
+
+    <div class="disclosure">Plain disclosure: we make our money from these guides, not from the brands. When a link ever earns us a commission we say so, and it never changes your price. No sponsors choose the winners.</div>
+
+    <p class="dev-flag">DEV NOTE: delivery is stubbed. On real payment success, generate signed, expiring download links (per purchased SKU), fire the receipt + delivery email via beehiiv, and grant access. The summary list is rendered client-side from funnel state for the demo only; production must read the real order server-side.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>The Real Food List, from the Tasted &amp; Tested channel. We read the labels so you do not have to.</p>
+    <p class="footlinks"><a href="index.html">Home</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="refund.html">Refund policy</a> · <a href="contact.html">Contact</a></p>
+  </div>
+</footer>
+
+<script src="assets/funnel.js"></script>
+</body>
+</html>

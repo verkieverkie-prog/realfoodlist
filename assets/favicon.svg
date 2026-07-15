@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="10" fill="#17150F"/>
+  <!-- highlighter swipe -->
+  <rect x="10" y="34" width="44" height="15" rx="2" fill="#FFE24D" transform="rotate(-3 32 41)"/>
+  <!-- label check mark -->
+  <path d="M17 30 l9 9 l21 -22" fill="none" stroke="#FFE24D" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

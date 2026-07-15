@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="styles.css">
+<style>
+  html,body{margin:0}
+  .og{width:1200px;height:630px;background:var(--stock);position:relative;overflow:hidden;
+    display:flex;flex-direction:column;justify-content:center;padding:0 76px;box-sizing:border-box;
+    background-image:radial-gradient(rgba(23,21,15,0.022) 1px,transparent 1.4px);background-size:4px 4px;}
+  .og .brand{position:absolute;top:44px;left:76px;font-family:var(--sans);font-size:20px;font-weight:800;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);}
+  .og h1{font-family:var(--serif);font-weight:800;font-size:70px;line-height:1.06;color:var(--ink);
+    letter-spacing:-0.015em;max-width:760px;margin:0 0 26px;}
+  .og p{font-family:var(--sans);font-size:27px;line-height:1.4;color:var(--ink-2);max-width:640px;margin:0;}
+  .og .panel{position:absolute;right:-40px;top:118px;width:390px;background:#fff;border:3px solid var(--ink);
+    border-radius:4px;box-shadow:12px 12px 0 rgba(23,21,15,0.10);transform:rotate(2.4deg);padding:0;overflow:hidden;}
+  .og .pmast{background:var(--ink);color:var(--stock);font-family:var(--sans);font-weight:800;
+    font-size:19px;letter-spacing:.06em;padding:12px 18px;text-transform:uppercase;}
+  .og .prow{display:flex;gap:12px;align-items:center;padding:13px 18px;border-top:1px solid var(--hair);
+    font-family:var(--sans);font-size:20px;color:var(--ink);}
+  .og .t{flex:none;font-family:var(--sans);font-weight:800;font-size:14px;color:#fff;border-radius:3px;
+    padding:4px 9px;letter-spacing:.04em;}
+  .og .real{background:var(--real)} .og .skip{background:var(--skip)} .og .care{background:var(--check)}
+  .og mark{background:linear-gradient(transparent 8%, var(--mark) 8% 82%, transparent 82%);
+    color:var(--ink);padding:0 .05em;border-radius:3px;}
+  .og mark::before{display:none}
+</style>
+</head>
+<body>
+<div class="og">
+  <div class="brand">Tasted &amp; Tested</div>
+  <h1>The grocery brands to <mark>never buy again</mark>.</h1>
+  <p>You already read the label. We read all of them. Get the free plain-English list.</p>
+  <div class="panel">
+    <div class="pmast">Real Food Facts</div>
+    <div class="prow"><span class="t real">REAL</span> Cream and salt, nothing else.</div>
+    <div class="prow"><span class="t care">CHECK</span> Real, but read the tub.</div>
+    <div class="prow"><span class="t skip">SKIP</span> Oils in a butter costume.</div>
+    <div class="prow"><span class="t skip">SKIP</span> "Natural flavor" filler.</div>
+  </div>
+</div>
+</body>
+</html>

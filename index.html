@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Real Food List: brands to skip and the ones that are actually real</title>
+<meta name="description" content="A free, plain-English shopping list of grocery brands to avoid, and the ones that are actually real. From the Tasted &amp; Tested channel.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Real Food List: brands to skip, and the ones that are actually real">
+<meta property="og:description" content="You already read the label. We read all of them. Get the free plain-English list of grocery brands to skip, and the real alternatives.">
+<meta property="og:image" content="assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<div class="topbar">Free shopping list · <b>no cost, no catch</b> · from the Tasted &amp; Tested channel</div>
+
+<main class="hero">
+  <!-- DESKTOP FOLD: two columns (copy + form left, label panel right). Collapses to one on mobile. -->
+  <div class="wrap-wide hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">Before you shop again</p>
+      <h1>The grocery brands to <mark>never buy again</mark>, and the ones that are actually real.</h1>
+      <p class="lede">You already read the label. We read all of them. Get the free list that tells you, in plain English, what is real food and what is filler wearing a nice label, so you are not deciding in the aisle.</p>
+
+      <!-- OPT-IN: single field, above the fold, one job. -->
+      <form class="optin" action="#" method="post" onsubmit="return false" aria-label="Get the free list">
+        <label for="email">Get the full list free, plus the 12 brands to never buy again:</label>
+        <input id="email" name="email" type="email" required autocomplete="email"
+               placeholder="your email" inputmode="email">
+        <button class="btn" type="submit">Send me the free list</button>
+        <p class="subnote">One email. Unsubscribe anytime. We never sell your address.</p>
+      </form>
+      <!-- On submit: create beehiiv subscriber, then redirect to thank-you.html (tripwire) -->
+
+      <div class="trust">
+        <span class="chip">From the <b>Tasted &amp; Tested</b> channel</span>
+        <span class="dot"></span>
+        <span class="chip"><b>65,000+</b> subscribers</span>
+        <span class="dot"></span>
+        <span class="chip">Real labels, real sources</span>
+      </div>
+    </div>
+
+    <!-- THE VERDICT PANEL: styled like a nutrition-facts label. Mirrors what
+         viewers hand-transcribe in the comments. DATA IS PLACEHOLDER. Every
+         brand line must pass a human label-check before launch. -->
+    <div class="hero-panel">
+      <div class="verdict" aria-label="sample of the list">
+        <div class="masthead">Real Food Facts <span class="sub">SAMPLE · BUTTER</span></div>
+        <div class="panel-body">
+          <div class="serving">5 brands checked · verdict per brand</div>
+          <div class="vrow"><span class="tag real">REAL</span>
+            <span><span class="name">[Brand A]</span>. <span class="why">Cream and salt, nothing else.</span> <span class="needverify">[verify label]</span></span></div>
+          <div class="vrow"><span class="tag real">REAL</span>
+            <span><span class="name">[Brand B]</span>. <span class="why">Grass-fed, single ingredient.</span> <span class="needverify">[verify label]</span></span></div>
+          <div class="vrow"><span class="tag care">CHECK</span>
+            <span><span class="name">[Brand C]</span>. <span class="why">Real, but it varies by line. Read the tub.</span> <span class="needverify">[verify label]</span></span></div>
+          <div class="vrow"><span class="tag skip">SKIP</span>
+            <span><span class="name">[Brand D]</span>. <span class="why">Added "natural flavor" and oils.</span> <span class="needverify">[verify label]</span></span></div>
+          <div class="vrow"><span class="tag skip">SKIP</span>
+            <span><span class="name">[Brand E]</span>. <span class="why">It is a spread, not butter.</span> <span class="needverify">[verify label]</span></span></div>
+        </div>
+        <div class="foot">This is one category. The free list covers your whole cart.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap narrow">
+    <div class="proof">
+      "A voice of sanity in a world of increasing grocery-aisle anxiety."
+      <div class="who">actual viewer comment</div>
+    </div>
+
+    <h2>Why this list exists</h2>
+    <p>The label says one thing. The ingredients say another. Big food counts on you being too busy to check, and the FDA is not going to check for you. So we do. We read the actual ingredient panel on every brand, and we tell you which ones are real food and which ones are filler, additives, and oils dressed up to look like the real thing.</p>
+    <p><strong>No sponsors picking the winners.</strong> If a brand is real, it goes on the real list, whether they like us or not. When we ever earn a commission on something, we say so plainly, and it never changes your price.</p>
+
+    <h2>What you get, free</h2>
+    <p>The 12 grocery brands to never buy again, the real alternatives for each, and the one-line reason for every call. So the next time you are standing in the aisle, you already know.</p>
+
+    <form class="optin" action="#" method="post" onsubmit="return false">
+      <label for="email2">Ready? Enter your email:</label>
+      <input id="email2" name="email" type="email" required autocomplete="email" placeholder="your email" inputmode="email">
+      <button class="btn" type="submit">Send me the free list</button>
+      <p class="subnote">Free. One email. Unsubscribe anytime.</p>
+    </form>
+
+    <p class="dev-flag">DEV NOTE: placeholder brand data. Every REAL/SKIP/CHECK line must pass a human label-check before launch (the accuracy layer is the moat). Wire the form to beehiiv, then redirect to <code>thank-you.html</code>.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>The Real Food List, from the Tasted &amp; Tested channel. We read the labels so you do not have to.</p>
+    <p class="footlinks"><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="refund.html">Refund policy</a> · <a href="contact.html">Contact</a> · We never sell your email.</p>
+  </div>
+</footer>
+
+<script src="assets/funnel.js"></script>
+</body>
+</html>

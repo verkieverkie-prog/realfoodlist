@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>You are in. Check your inbox (one thing first)</title>
+<meta name="description" content="Your free list is on its way. One special offer for new subscribers only.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<div class="topbar countbar" id="countbar">
+  You are on the list. New-subscriber price ends in <b id="cd">48:00:00</b>
+</div>
+
+<main class="hero">
+  <!-- DESKTOP: pitch left, buy-box right (sticky). Stacks on mobile. -->
+  <div class="wrap-wide split">
+    <div class="pitch">
+      <p class="step">New-subscriber offer · today only</p>
+      <h1>While that is in your inbox, want the <mark>whole dairy aisle settled</mark>?</h1>
+      <p class="lede">Your free list covers the 12 worst. This is the <strong>complete Real Dairy guide</strong>: every butter, milk, cheese, yogurt, and cream brand, ranked real, check, or skip, with the reason for each. The one you take to the store and never second-guess again.</p>
+
+      <!-- SOCIAL PROOF. PLACEHOLDER counts/rating — human must verify real numbers before launch. -->
+      <div class="rating">
+        <span class="stars">★★★★★</span>
+        <span><b>[4.9]</b> from <b>[2,300+]</b> readers who bought the guide <span class="needverify">[verify]</span></span>
+      </div>
+
+      <ul class="outcomes" style="list-style:none;padding:0;margin:0 0 8px">
+        <li style="padding:6px 0 6px 30px;position:relative;color:var(--ink-2)"><span style="position:absolute;left:0;color:var(--real);font-weight:800">✓</span> Never stand in the dairy aisle reading labels again</li>
+        <li style="padding:6px 0 6px 30px;position:relative;color:var(--ink-2)"><span style="position:absolute;left:0;color:var(--real);font-weight:800">✓</span> Know the real brands and the fakes before you leave the house</li>
+        <li style="padding:6px 0 6px 30px;position:relative;color:var(--ink-2)"><span style="position:absolute;left:0;color:var(--real);font-weight:800">✓</span> Stop paying premium prices for oil and gums dressed up as dairy</li>
+      </ul>
+
+      <div class="verdict">
+        <div class="masthead">Real Dairy Guide <span class="sub">EVERY BRAND ON THE SHELF</span></div>
+        <div class="panel-body">
+          <div class="serving">4 things inside</div>
+          <div class="vrow"><span class="tag real">REAL</span><span class="why">Every brand that is actually just milk and cultures, named.</span></div>
+          <div class="vrow"><span class="tag skip">SKIP</span><span class="why">The "dairy" products that are mostly oil, gums, and flavor.</span></div>
+          <div class="vrow"><span class="tag care">CHECK</span><span class="why">The tricky ones where one line is real and another is not.</span></div>
+          <div class="vrow"><span class="tag real">PLUS</span><span class="why">A printable one-page pocket list for your wallet.</span></div>
+        </div>
+        <div class="foot">Ranked, with the reason for every call.</div>
+      </div>
+
+      <div class="proof">
+        Readers already do this by hand, copying our lists into their notes before they shop.
+        This is that, done for you, for every dairy brand on the shelf.
+      </div>
+    </div>
+
+    <div class="buybox">
+      <!-- LOW TIER / TRIPWIRE CHECKOUT: on-site (Stripe). First-dollar conversion. -->
+      <form class="optin" action="#" method="post" onsubmit="return false" aria-label="Get the Real Dairy guide">
+        <p class="price"><s>$19</s> $9 <span class="subnote" style="display:inline">new-subscriber price</span></p>
+        <p class="countline">Your <strong>$9 price</strong> is held for <b id="cd2">48:00:00</b>. After that it is the normal $19.</p>
+
+        <!-- VALUE STACK: real component prices. Confirm each price is one you genuinely sell at. -->
+        <div class="stack" aria-label="what is included">
+          <div class="srow"><span>Complete Real Dairy guide</span><span class="v">$19</span></div>
+          <div class="srow"><span>Printable pocket list</span><span class="v">$12</span></div>
+          <div class="srow"><span>Free updates as brands change</span><span class="v">$15</span></div>
+          <div class="total"><span class="lbl">Total real value</span><span class="amt">$46</span></div>
+          <div class="youpay"><span class="lbl">Today, new subscribers pay</span><span class="amt">$9</span></div>
+        </div>
+
+        <div class="bump">
+          <input type="checkbox" id="bump" name="bump">
+          <label for="bump">Yes, add the printable Pocket Cards for $9 more<br>
+            <span class="b-sub">Wallet-sized real and skip cards for dairy, pantry, and meat. Print once, shop forever.</span></label>
+        </div>
+
+        <label for="cc">Card or PayPal</label>
+        <input id="cc" name="cc" type="text" placeholder="Card number, secure checkout" autocomplete="cc-number">
+        <button class="btn" type="submit" data-buy="tripwire">Yes, settle my dairy aisle for $9</button>
+        <button class="btn ghost" type="submit" data-buy="tripwire-paypal">or pay with PayPal</button>
+        <p class="microcopy">Takes 60 seconds. Your guide downloads the moment you pay.</p>
+
+        <div class="badges">
+          <span class="bdg"><span class="ic">✓</span> Secure checkout</span>
+          <span class="bdg"><span class="ic">✓</span> Instant download</span>
+          <span class="bdg"><span class="ic">✓</span> 30-day money back</span>
+          <span class="bdg"><span class="ic">✓</span> No account needed</span>
+        </div>
+      </form>
+
+      <div class="guarantee">
+        <span class="seal">100%<br>BACK</span>
+        <span><strong>Read it. If it does not save you money and worry at the store, email us in 30 days for every cent back, and keep the guide anyway.</strong> The risk is completely on us.</span>
+      </div>
+
+      <div class="disclosure">This offer is for new subscribers and lasts 48 hours from your first visit. The timer is real, tied to your visit, and does not reset when you reload. After it ends the price is simply the normal $19. When we recommend a brand we earn nothing for the mention. If a link ever pays us a commission, we say so, and it never changes your price.</div>
+
+      <a class="btn ghost" href="#" data-skip="tripwire" style="margin-top:8px">No thanks, just send my free list</a>
+    </div>
+  </div>
+
+  <div class="wrap narrow">
+    <!-- TESTIMONIALS. PLACEHOLDER — replace with real, permissioned reader quotes before launch. -->
+    <h2 style="text-align:center;font-size:24px">What readers say after they buy</h2>
+    <div class="testis">
+      <div class="testi">"I used to spend twenty minutes squinting at labels. Now I just check the guide and go." <span class="st">★★★★★</span><div class="name">[Reader name] <span class="needverify">[verify]</span></div></div>
+      <div class="testi">"Found out three brands I trusted for years were mostly oil. Worth ten times the price." <span class="st">★★★★★</span><div class="name">[Reader name] <span class="needverify">[verify]</span></div></div>
+    </div>
+
+    <h2 style="text-align:center;font-size:24px">Quick answers before you decide</h2>
+    <div class="faqs">
+      <div class="faq"><p class="q">Is this a subscription?</p><p class="a">No. One payment, the guide is yours, and updates come free. Nothing recurring, no account to manage.</p></div>
+      <div class="faq"><p class="q">What if I do not find it useful?</p><p class="a">Email us within 30 days for a full refund and keep the guide. You cannot lose money on this.</p></div>
+      <div class="faq"><p class="q">How do I get it?</p><p class="a">Instant download the moment you pay, plus a copy in your inbox. Read it on your phone in the store or print it.</p></div>
+      <div class="faq"><p class="q">Do brands pay you to rank higher?</p><p class="a">Never. We read the actual ingredient panel and show our sourcing. That is the whole point of the list.</p></div>
+    </div>
+
+    <p class="dev-flag">DEV NOTE: checkout is stubbed. Wire the button to a Stripe Payment Element (plus Stripe Tax). On success, deliver a signed download link and fire the receipt email. Tag non-completers into the abandoned-cart sequence in beehiiv. Bump adds $9. VERIFY before launch: rating/reader counts, testimonials (real + permissioned), value-stack component prices, and the 30-day/keep-it guarantee terms.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>The Real Food List, from the Tasted &amp; Tested channel.</p>
+    <p class="footlinks"><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="refund.html">Refund policy</a> · <a href="contact.html">Contact</a></p>
+  </div>
+</footer>
+
+<script>
+/* Honest 48h countdown: anchored to the visitor's FIRST visit (localStorage),
+   so it persists across reloads and never fakes-resets. When it expires the
+   page tells the truth and drops back to the normal price. */
+(function(){
+  var WINDOW_MS = 48 * 60 * 60 * 1000;
+  var KEY = 'tt_offer_start_v1';
+  var start = parseInt(localStorage.getItem(KEY), 10);
+  if (!start || isNaN(start)) { start = Date.now(); localStorage.setItem(KEY, start); }
+  var deadline = start + WINDOW_MS;
+
+  var els = ['cd','cd2'].map(function(id){ return document.getElementById(id); });
+  function pad(n){ return (n < 10 ? '0' : '') + n; }
+
+  function expire(){
+    var bar = document.getElementById('countbar');
+    if (bar){ bar.classList.add('ended'); bar.innerHTML = 'The 48-hour new-subscriber price has ended. This is now the standard $19.'; }
+    var line = document.querySelector('.countline');
+    if (line){ line.innerHTML = 'The new-subscriber window has ended. This is the standard price.'; }
+  }
+
+  function tick(){
+    var left = deadline - Date.now();
+    if (left <= 0){ expire(); return; }
+    var h = Math.floor(left / 3600000);
+    var m = Math.floor((left % 3600000) / 60000);
+    var s = Math.floor((left % 60000) / 1000);
+    var txt = pad(h) + ':' + pad(m) + ':' + pad(s);
+    els.forEach(function(e){ if (e) e.textContent = txt; });
+    setTimeout(tick, 1000);
+  }
+  tick();
+})();
+</script>
+<script src="assets/funnel.js"></script>
+</body>
+</html>
